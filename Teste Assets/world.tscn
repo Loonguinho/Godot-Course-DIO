@@ -1,0 +1,108 @@
+[gd_scene load_steps=12 format=3 uid="uid://cma8syax1u6tu"]
+
+[ext_resource type="TileSet" uid="uid://boc7yr48h5ily" path="res://tileset.tres" id="1_248al"]
+[ext_resource type="Texture2D" uid="uid://b216d55v78frg" path="res://addons/alien pack/shipGreen_manned.png" id="2_5uc2v"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_mfsv8"]
+[ext_resource type="Texture2D" uid="uid://bdk3tmx0pavam" path="res://addons/backgrounds/city 6/1.png" id="4_ayqiu"]
+[ext_resource type="Texture2D" uid="uid://bkkvbpy4mlu7c" path="res://addons/backgrounds/city 6/2.png" id="5_ctsva"]
+[ext_resource type="Texture2D" uid="uid://dip3ojcc3ecrf" path="res://addons/backgrounds/city 6/3.png" id="6_pvix8"]
+[ext_resource type="Texture2D" uid="uid://ny3ueqmry4pb" path="res://addons/backgrounds/city 6/4.png" id="7_3wju1"]
+[ext_resource type="Texture2D" uid="uid://dutwyw10wb47f" path="res://addons/backgrounds/city 6/5.png" id="8_2n2pm"]
+[ext_resource type="Texture2D" uid="uid://5qswjefum7fl" path="res://addons/backgrounds/city 6/6.png" id="9_hgwv4"]
+[ext_resource type="Texture2D" uid="uid://70525ogx8myv" path="res://addons/backgrounds/city 6/7.png" id="10_go1ot"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2ymdu"]
+radius = 41.1096
+
+[node name="World" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-18, 0)
+tile_set = ExtResource("1_248al")
+format = 2
+layer_0/name = "Terreno"
+layer_0/tile_data = PackedInt32Array(196609, 524289, 0, 196610, 458753, 1, 196611, 458753, 1, 196612, 458753, 1, 196613, 524289, 1, 196618, 524289, 0, 196619, 458753, 1, 196620, 458753, 1, 196621, 458753, 1, 196622, 458753, 1, 196623, 458753, 1, 196624, 524289, 1, 524289, 131073, 0, 524290, 131073, 0, 524288, 65537, 0, 524291, 131073, 0, 524292, 131073, 0, 524301, 131073, 0, 524302, 131073, 0, 524303, 131073, 0, 524304, 131073, 0, 524305, 131073, 0, 524293, 327681, 0, 589841, 262145, 0, 589840, 262145, 0, 589839, 262145, 0, 589838, 262145, 0, 589837, 262145, 0, 589836, 262145, 0, 524298, 393217, 0, 524300, 131073, 0, 524299, 131073, 0, 589835, 262145, 0, 589834, 262145, 0, 589829, 262145, 0, 589828, 262145, 0, 589827, 262145, 0, 589826, 262145, 0, 589825, 262145, 0, 589824, 262145, 0, 524306, 131073, 0, 589842, 262145, 0, 524307, 131073, 0, 589843, 262145, 0, 524308, 131073, 0, 589844, 262145, 0, 524309, 131073, 0, 589845, 262145, 0, 524310, 131073, 0, 589846, 262145, 0, 524311, 131073, 0, 589847, 262145, 0, 524312, 131073, 0, 589848, 262145, 0, 524313, 131073, 0, 589849, 262145, 0, 524314, 131073, 0, 589850, 262145, 0, 524315, 131073, 0, 589851, 262145, 0, 524316, 131073, 0, 589852, 262145, 0, 524317, 131073, 0, 589853, 262145, 0, 524318, 131073, 0, 589854, 262145, 0, 524319, 131073, 0, 589855, 262145, 0, 524320, 131073, 0, 589856, 262145, 0, 196629, 458753, 0, 196630, 458753, 1, 196631, 458753, 1, 196632, 458753, 1, 196633, 458753, 1, 196634, 458753, 0, 196635, 458753, 1, 196640, 524289, 1, 196641, 458753, 1, 196642, 458753, 1, 196643, 458753, 1, 196644, 458753, 1, 196645, 458753, 1, 196646, 524289, 1, 196636, 458753, 1, 196637, 458753, 1, 196638, 458753, 1, 196639, 458753, 1, 458772, 327681, 3, 393236, 327681, 3, 327700, 327681, 3, 262164, 327681, 3, 196628, 327681, 3, 458782, 589825, 3, 131099, 589825, 3, 458763, 589825, 3, 131083, 589825, 3, 131076, 589825, 3, 458765, 1, 4, 458755, 1, 4, 458756, 1, 4, 458773, 1, 4, 0, 1, 4, 65536, 1, 4, 131072, 1, 4, 196608, 1, 4, 262144, 1, 4, 327680, 1, 4, 393216, 1, 4, 458752, 1, 4)
+layer_1/name = "Details back"
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(131077, 327681, 4, 131082, 327681, 4, 65543, 851969, 4, 393220, 851969, 5, 393227, 851969, 7, 327704, 131073, 4, 327705, 196609, 4, 327706, 262145, 4, 65559, 131073, 4, 65560, 196609, 4, 65561, 262145, 4, 65548, 131073, 4, 65549, 196609, 4, 65550, 262145, 4, 327686, 131073, 4, 327687, 196609, 4, 327688, 262145, 4, 458783, 720897, 0, 458784, 720897, 0, 524319, 720897, 1, 524320, 720897, 1, 196646, 720897, 1, 196645, 720897, 1, 196644, 720897, 1, 196643, 720897, 1, 131107, 720897, 0, 131108, 720897, 0, 131109, 720897, 0, 131110, 720897, 0)
+layer_2/name = "Details Front"
+layer_2/z_index = 3
+layer_2/tile_data = PackedInt32Array(327714, 720897, 7, 327715, 720897, 7, 393251, 720897, 7, 393252, 720897, 7, 458788, 720897, 7, 458789, 720897, 7, 393253, 720897, 7, 327717, 720897, 7, 262181, 720897, 7, 262180, 720897, 7, 262179, 720897, 7, 327716, 720897, 7, 262178, 720897, 7, 393250, 720897, 7, 458786, 720897, 7, 458787, 720897, 7, 458781, 720897, 3)
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+z_index = 2
+position = Vector2(129, 65)
+motion_mode = 1
+script = ExtResource("2_mfsv8")
+speed = 5.0
+lerp_factor = 0.075
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_2ymdu")
+
+[node name="ShipGreenManned" type="Sprite2D" parent="CharacterBody2D"]
+unique_name_in_owner = true
+scale = Vector2(0.646341, 0.646341)
+texture = ExtResource("2_5uc2v")
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+position = Vector2(-129, -65)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(2, 2)
+transform = Transform2D(2, 0, 0, 2, 0, 0)
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite" type="Sprite2D" parent="ParallaxBackground/Sky"]
+texture = ExtResource("4_ayqiu")
+centered = false
+
+[node name="Buildings2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground/Buildings2"]
+texture = ExtResource("5_ctsva")
+centered = false
+
+[node name="Buildings3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground/Buildings3"]
+texture = ExtResource("6_pvix8")
+centered = false
+
+[node name="Buildings4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground/Buildings4"]
+texture = ExtResource("7_3wju1")
+centered = false
+
+[node name="Buildings5" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground/Buildings5"]
+texture = ExtResource("8_2n2pm")
+centered = false
+
+[node name="Buildings6" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground/Buildings6"]
+texture = ExtResource("9_hgwv4")
+centered = false
+
+[node name="Buildings7" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 0)
+motion_mirroring = Vector2(576, 0)
+
+[node name="2" type="Sprite2D" parent="ParallaxBackground/Buildings7"]
+texture = ExtResource("10_go1ot")
+centered = false

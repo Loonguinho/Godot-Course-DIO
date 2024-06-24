@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://d4lytl3mv6m7l"]
+
+[ext_resource type="Script" path="res://scritps/game_manager.gd" id="1_1d7cl"]
+[ext_resource type="PackedScene" uid="uid://8ufb58nxys4q" path="res://objects/box.tscn" id="1_dw0vk"]
+[ext_resource type="PackedScene" uid="uid://gaij3fwdevhe" path="res://objects/box_bouncy.tscn" id="2_1k6ua"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_reioo"]
+size = Vector2(1161, 64)
+
+[node name="World" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("1_1d7cl")
+object_templates = Array[PackedScene]([ExtResource("1_dw0vk"), ExtResource("2_1k6ua")])
+
+[node name="Background" type="ColorRect" parent="."]
+offset_right = 1161.0
+offset_bottom = 661.0
+color = Color(0.00784314, 0.490196, 0.568627, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-26, 568)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(606.5, 52)
+shape = SubResource("RectangleShape2D_reioo")
+debug_color = Color(0.977914, 0, 0.400368, 0.42)
+
+[node name="Ground" type="ColorRect" parent="StaticBody2D/CollisionShape2D"]
+offset_left = -609.0
+offset_top = -32.0
+offset_right = 609.0
+offset_bottom = 32.0
+
+[node name="Box" parent="." instance=ExtResource("1_dw0vk")]
+position = Vector2(232, 120)
+
+[node name="Box2" parent="." instance=ExtResource("1_dw0vk")]
+position = Vector2(635, 206)
+
+[node name="Box3" parent="." instance=ExtResource("1_dw0vk")]
+position = Vector2(428, 233)
+
+[node name="Box4" parent="." instance=ExtResource("1_dw0vk")]
+position = Vector2(451, 205)
+
+[node name="Box5" parent="." instance=ExtResource("2_1k6ua")]
+position = Vector2(372, 51)
+
+[node name="Box6" parent="." instance=ExtResource("2_1k6ua")]
+position = Vector2(499, 43)
+
+[node name="Box7" parent="." instance=ExtResource("2_1k6ua")]
+position = Vector2(443, -119)
+
+[node name="Box8" parent="." instance=ExtResource("2_1k6ua")]
+position = Vector2(214, -105)
+
+[node name="Box9" parent="." instance=ExtResource("2_1k6ua")]
+position = Vector2(694, -63)
