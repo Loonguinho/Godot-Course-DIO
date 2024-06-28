@@ -1,13 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://cve8p2cml6la3"]
+[gd_scene load_steps=4 format=3 uid="uid://cve8p2cml6la3"]
 
 [ext_resource type="Texture2D" uid="uid://b5ujxp3xiofj3" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_s33ff"]
 [ext_resource type="PackedScene" uid="uid://rlgadek42m2a" path="res://player/player.tscn" id="2_f6a1g"]
+[ext_resource type="PackedScene" uid="uid://ukplsekl2l8y" path="res://enemies/sheep_enemy.tscn" id="5_iv4ae"]
 
 [node name="TestPlayer" type="Node2D"]
 
-[node name="WarriorPurple" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(1913, 55)
 texture = ExtResource("1_s33ff")
 
 [node name="Player" parent="." instance=ExtResource("2_f6a1g")]
 position = Vector2(594, 226)
+
+[node name="SheepEnemy7" parent="." instance=ExtResource("5_iv4ae")]
+position = Vector2(662, 857)
