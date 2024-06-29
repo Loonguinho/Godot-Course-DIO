@@ -7,7 +7,6 @@
 
 [node name="Player" parent="." instance=ExtResource("1_7icru")]
 position = Vector2(171, 307)
-health = 30.0
 
 [node name="Meat" parent="." instance=ExtResource("2_4630a")]
 position = Vector2(661, 323)

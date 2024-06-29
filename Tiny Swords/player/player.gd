@@ -12,8 +12,8 @@ extends CharacterBody2D
 @export var spell_scene: PackedScene
 
 @export_category("Life")
-@export var health: float = 100
-@export var max_health: float = 100
+@export var health: float = 100.0
+@export var max_health: float = 100.0
 @export var death_prefab: PackedScene
 
 
@@ -21,6 +21,7 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var sword_area: Area2D = $SwordArea
 @onready var hitbox_area: Area2D = $HitBoxArea
+@onready var health_bar: ProgressBar = $HealthBar
 
 var input_vector:Vector2 = Vector2(0, 0)
 var is_running: bool = false
@@ -51,6 +52,9 @@ func _process(delta: float) -> void:
 	
 	#Spell
 	update_spell(delta)
+	
+	#Update health bar
+	update_health_bar()
 
 func _physics_process(delta: float) -> void:
 	#Modify velocity
@@ -182,5 +186,8 @@ func update_spell(delta: float):
 	spell.damage_amount = spell_damage
 	add_child(spell)
 	
-	
+
+func update_health_bar() -> void:
+	health_bar.max_value = max_health
+	health_bar.value = health
 
