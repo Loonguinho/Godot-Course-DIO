@@ -31,6 +31,11 @@ var attack_cooldown: float = 0.0
 var hitbox_cooldown: float = 0.0
 var spell_cooldown: float = 0.0
 
+signal meat_collected(value: int)
+
+func _ready():
+	GameManager.player = self
+	meat_collected.connect(func (value: int): GameManager.meat_counter += 1)
 
 func _process(delta: float) -> void:
 	#Get Playpos to GamaManager
@@ -164,6 +169,7 @@ func damage(amount: float) -> void:
 
 
 func die() -> void:
+	GameManager.end_game()
 	if death_prefab:
 		var death_object = death_prefab.instantiate()
 		death_object.position = position

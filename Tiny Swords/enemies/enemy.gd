@@ -1,9 +1,21 @@
 class_name Enemy
 extends Node2D
-
+@export_category("Life")
 @export var health: float = 10
+
+@export_category("Death")
 @export var death_prefab: PackedScene
+
+@export_category("Damage")
 @export var enemy_damage: float = 1.0
+
+@export_category("Drops")
+@export var drop_chance: float = 0.1
+@export var drop_items: Array[PackedScene]
+@export var drop_chances: Array[float]
+
+
+@export_category("Damage Marker")
 @onready var damage_digit_marker = $DamageMarker
 var damage_digit_prefab: PackedScene
 
@@ -36,11 +48,45 @@ func damage(amount: float) -> void:
 
 
 func die() -> void:
+	#Skull
 	if death_prefab:
 		var death_object = death_prefab.instantiate()
 		death_object.position = position
 		get_parent().add_child(death_object)
-		
 	
+	#Drop
+	if randf() <= drop_chance:
+		drop_item()
+	
+	GameManager.monster_defeated += 1
+	
+	#Delete node
 	queue_free()
+	
+func drop_item():
+	var drop = get_random_item().instantiate()
+	drop.position = position
+	get_parent().add_child(drop)
+
+func get_random_item() -> PackedScene:
+	#Return first and only item if list size is 1
+	if drop_items.size() == 1:
+		return drop_items[0]
+	
+	#Calculate max chance
+	var max_chance: float = 0.0
+	for drop_chance in drop_chances:
+		max_chance += drop_chance
+	
+	#Random number
+	var random_value = randf() * max_chance
+	
+	var needle: float = 0.0
+	for i in drop_items.size():
+		var drop_item = drop_items[i]
+		var drop_chance = drop_chances[i] if i < drop_chances.size() else 1
+		if random_value <= drop_chance + needle:
+			return drop_item
+		needle += drop_chance
 		
+	return drop_items[0]

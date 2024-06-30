@@ -1,0 +1,177 @@
+[gd_scene load_steps=13 format=3 uid="uid://ct3vxvxl57a61"]
+
+[ext_resource type="Script" path="res://ui/game_over_ui.gd" id="1_5selm"]
+[ext_resource type="Texture2D" uid="uid://m77c45x3j0yi" path="res://addons/Tiny Swords/UI/Ribbons/Ribbon_Red_3Slides.png" id="1_q3o3s"]
+[ext_resource type="Texture2D" uid="uid://clhxhutlovuby" path="res://addons/Tiny Swords/UI/Banners/Banner_Vertical.png" id="2_iefpi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ai44"]
+texture = ExtResource("1_q3o3s")
+texture_margin_left = 48.0
+texture_margin_right = 48.0
+
+[sub_resource type="SystemFont" id="SystemFont_hoald"]
+font_names = PackedStringArray("JetBrains Mono")
+font_weight = 999
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_kqri4"]
+font = SubResource("SystemFont_hoald")
+font_size = 40
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tnmqi"]
+texture = ExtResource("2_iefpi")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 48.0
+axis_stretch_horizontal = 2
+region_rect = Rect2(32, 16, 128, 160)
+
+[sub_resource type="SystemFont" id="SystemFont_ivlxq"]
+font_names = PackedStringArray("JetBrains Mono")
+font_weight = 999
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_miqx7"]
+font = SubResource("SystemFont_ivlxq")
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_bnisc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vfn8i"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.894118)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2m65k"]
+_data = {
+"RESET": SubResource("Animation_bnisc"),
+"default": SubResource("Animation_vfn8i")
+}
+
+[node name="GameOverUI" type="CanvasLayer"]
+script = ExtResource("1_5selm")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="Top Panel" type="Panel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -230.0
+offset_top = 31.0
+offset_right = 230.0
+offset_bottom = 129.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_2ai44")
+
+[node name="Game Over" type="Label" parent="Top Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -39.0
+offset_right = 128.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_kqri4")
+
+[node name="Bottom Panel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -269.5
+offset_top = 11.0
+offset_right = 269.5
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tnmqi")
+
+[node name="CenterContainer" type="CenterContainer" parent="Bottom Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -39.0
+offset_right = 170.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="Bottom Panel/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 25
+theme_override_constants/v_separation = 25
+columns = 2
+
+[node name="Monster Defeated" type="Label" parent="Bottom Panel/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Monster Defeated:"
+label_settings = SubResource("LabelSettings_miqx7")
+
+[node name="MonsterCount" type="Label" parent="Bottom Panel/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "1231241"
+label_settings = SubResource("LabelSettings_miqx7")
+
+[node name="Time Survived" type="Label" parent="Bottom Panel/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Time Survived:
+"
+label_settings = SubResource("LabelSettings_miqx7")
+
+[node name="TimeCount" type="Label" parent="Bottom Panel/CenterContainer/GridContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "08:00"
+label_settings = SubResource("LabelSettings_miqx7")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2m65k")
+}
+autoplay = "default"
