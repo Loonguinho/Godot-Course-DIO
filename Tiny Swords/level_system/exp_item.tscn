@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=3 uid="uid://qbhjono8k8e2"]
+
+[ext_resource type="Script" path="res://level_system/exp_item.gd" id="1_ip32q"]
+[ext_resource type="Texture2D" uid="uid://bnokc1r14jmhe" path="res://addons/Particle Pack/magic_05.png" id="1_s2k7g"]
+
+[sub_resource type="Animation" id="Animation_dmwks"]
+resource_name = "default"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, 0.349066, 0.523599, 0.698132, 0.872665, 1.0472, 1.22173, 1.39626, 1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_uv0e4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pm00p"]
+_data = {
+"RESET": SubResource("Animation_uv0e4"),
+"default": SubResource("Animation_dmwks")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qkr47"]
+radius = 16.1555
+
+[node name="ExpItem" type="Node2D"]
+script = ExtResource("1_ip32q")
+
+[node name="Magic05" type="Sprite2D" parent="."]
+modulate = Color(1, 0.596078, 0, 1)
+scale = Vector2(0.16, 0.16)
+texture = ExtResource("1_s2k7g")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pm00p")
+}
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qkr47")

@@ -61,11 +61,14 @@ radius = 8.0
 height = 34.0
 
 [node name="SheepEnemy" type="CharacterBody2D" groups=["enemies"]]
+scale = Vector2(0.985103, 1.00414)
+motion_mode = 1
 script = ExtResource("1_bj72p")
 death_prefab = ExtResource("2_itsbk")
-enemy_damage = 2.0
-drop_chance = 0.2
+enemy_damage = 3.0
+drop_chance = 0.4
 drop_items = Array[PackedScene]([ExtResource("3_aojv5")])
+exp_amount = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -19)

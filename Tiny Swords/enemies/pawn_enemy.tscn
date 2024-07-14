@@ -60,9 +60,12 @@ animations = [{
 height = 54.0
 
 [node name="PawnEnemy" type="CharacterBody2D" groups=["enemies"]]
+scale = Vector2(0.980422, 1.00539)
+motion_mode = 1
 script = ExtResource("1_h7voe")
-health = 5.0
+health = 15.0
 death_prefab = ExtResource("2_atu51")
+enemy_damage = 5.0
 drop_items = Array[PackedScene]([ExtResource("3_811l2")])
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

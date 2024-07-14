@@ -63,13 +63,15 @@ height = 54.0
 
 [node name="GoblinEnemy" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(2.28056, 2.28056)
+motion_mode = 1
 script = ExtResource("1_roqw7")
-health = 30.0
+health = 40.0
 death_prefab = ExtResource("2_d0syu")
-enemy_damage = 5.0
-drop_chance = 0.3
+enemy_damage = 20.0
+drop_chance = 0.2
 drop_items = Array[PackedScene]([ExtResource("3_blkx3"), ExtResource("4_nijgj")])
-drop_chances = Array[float]([0.8, 0.1])
+drop_chances = Array[float]([0.6, 0.1])
+exp_amount = 20
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -30)

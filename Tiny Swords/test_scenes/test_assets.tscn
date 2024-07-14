@@ -1,9 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfmva4b3k6vyc"]
+[gd_scene load_steps=15 format=3 uid="uid://bfmva4b3k6vyc"]
 
 [ext_resource type="Texture2D" uid="uid://b5ujxp3xiofj3" path="res://addons/Tiny Swords/Factions/Knights/Troops/Warrior/Purple/Warrior_Purple.png" id="1_4gklr"]
 [ext_resource type="Texture2D" uid="uid://bliuwr44towp2" path="res://addons/Tiny Swords/Factions/Knights/Troops/Dead/Dead.png" id="2_e8kd3"]
 [ext_resource type="Texture2D" uid="uid://yjwh1nenw10d" path="res://addons/Tiny Swords/Factions/Knights/Troops/Pawn/Yellow/Pawn_Yellow.png" id="3_6ilca"]
 [ext_resource type="Texture2D" uid="uid://x57a5t2ocjcu" path="res://addons/Tiny Swords/Resources/Sheep/HappySheep_All.png" id="4_is54h"]
+[ext_resource type="Texture2D" uid="uid://de2jpx0pswvyr" path="res://addons/Particle Pack/Rotated/flame_05_rotated.png" id="5_pkyh5"]
+[ext_resource type="Texture2D" uid="uid://3pkhed3mxg8m" path="res://addons/Particle Pack/circle_05.png" id="6_qw4hq"]
+[ext_resource type="Texture2D" uid="uid://bwmyvnp1fhpps" path="res://addons/Particle Pack/light_01.png" id="7_5j37d"]
+[ext_resource type="Texture2D" uid="uid://cbjwn3c3g2m5r" path="res://addons/Particle Pack/light_02.png" id="8_hcpp1"]
+[ext_resource type="Texture2D" uid="uid://cd5eukmchxowj" path="res://addons/Particle Pack/light_03.png" id="9_pxxrk"]
+[ext_resource type="Texture2D" uid="uid://d0kdwh7kfk52w" path="res://addons/Particle Pack/magic_03.png" id="10_hdvbp"]
+[ext_resource type="Texture2D" uid="uid://bnokc1r14jmhe" path="res://addons/Particle Pack/magic_05.png" id="11_ji5bv"]
+[ext_resource type="Texture2D" uid="uid://bjcc24ukm6dke" path="res://addons/Particle Pack/muzzle_01.png" id="12_yrsv3"]
+[ext_resource type="Texture2D" uid="uid://bfbs0g6pbybk2" path="res://addons/Particle Pack/slash_03.png" id="13_b2je0"]
+[ext_resource type="Texture2D" uid="uid://ccgfir26twkn1" path="res://addons/Particle Pack/smoke_02.png" id="14_cc6mw"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -22,3 +32,43 @@ texture = ExtResource("3_6ilca")
 [node name="HappySheepAll" type="Sprite2D" parent="."]
 position = Vector2(1093, 1553)
 texture = ExtResource("4_is54h")
+
+[node name="Flame05Rotated" type="Sprite2D" parent="."]
+position = Vector2(591, 1799)
+texture = ExtResource("5_pkyh5")
+
+[node name="Circle05" type="Sprite2D" parent="."]
+position = Vector2(788, 2068)
+texture = ExtResource("6_qw4hq")
+
+[node name="Light01" type="Sprite2D" parent="."]
+position = Vector2(458, 1992)
+texture = ExtResource("7_5j37d")
+
+[node name="Light02" type="Sprite2D" parent="."]
+position = Vector2(27, 2227)
+texture = ExtResource("8_hcpp1")
+
+[node name="Light03" type="Sprite2D" parent="."]
+position = Vector2(393, 2319)
+texture = ExtResource("9_pxxrk")
+
+[node name="Magic03" type="Sprite2D" parent="."]
+position = Vector2(718, 2352)
+texture = ExtResource("10_hdvbp")
+
+[node name="Magic05" type="Sprite2D" parent="."]
+position = Vector2(184, 2659)
+texture = ExtResource("11_ji5bv")
+
+[node name="Muzzle01" type="Sprite2D" parent="."]
+position = Vector2(542, 2737)
+texture = ExtResource("12_yrsv3")
+
+[node name="Slash03" type="Sprite2D" parent="."]
+position = Vector2(-221, 2891)
+texture = ExtResource("13_b2je0")
+
+[node name="Smoke02" type="Sprite2D" parent="."]
+position = Vector2(-77, 3115)
+texture = ExtResource("14_cc6mw")

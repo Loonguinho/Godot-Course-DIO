@@ -267,14 +267,8 @@ bg_color = Color(1, 0, 0, 1)
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_yj40k")
 speed = 3.5
-sword_damage = null
-spell_damage = null
-spell_interval = null
 spell_scene = ExtResource("2_tcjhh")
-health = null
-max_health = null
 death_prefab = ExtResource("2_u8k1o")
-level = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -30)
@@ -314,6 +308,7 @@ offset_left = -39.0
 offset_top = -92.0
 offset_right = 39.0
 offset_bottom = -86.0
+scale = Vector2(1.12437, 1)
 theme_override_styles/background = SubResource("StyleBoxFlat_clvdp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_3fxwj")
 value = 50.0

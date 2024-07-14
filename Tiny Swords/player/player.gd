@@ -16,6 +16,7 @@ extends CharacterBody2D
 @export var max_health: float = 100.0
 @export var death_prefab: PackedScene
 
+@export_category("Level System")
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sprite: Sprite2D = $Sprite2D
@@ -30,6 +31,11 @@ var is_attacking: bool = false
 var attack_cooldown: float = 0.0
 var hitbox_cooldown: float = 0.0
 var spell_cooldown: float = 0.0
+var experience: int = 0
+var experience_total: int = 0
+var level: int = GameManager.level
+var experience_required = GameManager.get_required_exp(level + 1)
+
 
 signal meat_collected(value: int)
 
@@ -175,7 +181,7 @@ func die() -> void:
 		death_object.position = position
 		get_parent().add_child(death_object)
 	queue_free()
-		
+
 func heal(amount: int) -> int:
 	health += amount
 	if health > max_health:
@@ -190,8 +196,7 @@ func update_spell(delta: float):
 	#create spell
 	var spell = spell_scene.instantiate()
 	spell.damage_amount = spell_damage
-	add_child(spell)
-	
+	add_child(spell)	
 
 func update_health_bar() -> void:
 	health_bar.max_value = max_health

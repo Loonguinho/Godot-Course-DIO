@@ -304,6 +304,8 @@ debug_color = Color(0, 0, 1, 0.419608)
 
 [node name="Player" parent="." instance=ExtResource("1_uhc3h")]
 y_sort_enabled = true
+sword_damage = 2.0
+spell_interval = 20.0
 
 [node name="Camera" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -320,6 +322,10 @@ update_scale = false
 [node name="DifficultySystem" type="Node2D" parent="." node_paths=PackedStringArray("mob_spawner")]
 script = ExtResource("25_5pw8r")
 mob_spawner = NodePath("../MobSpawn")
+mobs_per_minute = 10.0
+wave_duration = 30.0
+initial_spawn_rate = 50.0
+break_intensity = 0.7
 
 [node name="MobSpawn" parent="." instance=ExtResource("2_7seoq")]
 position = Vector2(0, 0)

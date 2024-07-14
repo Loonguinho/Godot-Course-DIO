@@ -14,10 +14,12 @@ extends Node2D
 @export var drop_items: Array[PackedScene]
 @export var drop_chances: Array[float]
 
-
 @export_category("Damage Marker")
 @onready var damage_digit_marker = $DamageMarker
 var damage_digit_prefab: PackedScene
+
+@export_category("Enemy Exp")
+@export var exp_amount = 10
 
 func _ready():
 	#motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
@@ -36,7 +38,7 @@ func damage(amount: float) -> void:
 	#Create Damage digit
 	var damage_digit = damage_digit_prefab.instantiate()
 
-	damage_digit.value = amount
+	damage_digit.value = round(amount)
 	if damage_digit_marker:
 		damage_digit.global_position = damage_digit_marker.global_position 
 	else:
@@ -60,6 +62,7 @@ func die() -> void:
 		drop_item()
 	
 	GameManager.monster_defeated += 1
+	GameManager.gain_experience(exp_amount)
 	
 	#Delete node
 	queue_free()
