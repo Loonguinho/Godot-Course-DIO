@@ -5,7 +5,7 @@ extends CanvasLayer
 @onready var monster_label: Label = %MonsterCount
 
 
-@export var restart_delay: float = 20.0
+@export var restart_delay: float =15.0
 var restart_cooldown: float
 
 

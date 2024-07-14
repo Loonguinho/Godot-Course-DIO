@@ -304,7 +304,6 @@ debug_color = Color(0, 0, 1, 0.419608)
 
 [node name="Player" parent="." instance=ExtResource("1_uhc3h")]
 y_sort_enabled = true
-sword_damage = 30.0
 
 [node name="Camera" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")

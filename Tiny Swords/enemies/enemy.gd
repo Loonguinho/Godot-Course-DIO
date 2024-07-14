@@ -20,6 +20,7 @@ extends Node2D
 var damage_digit_prefab: PackedScene
 
 func _ready():
+	#motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	damage_digit_prefab = preload("res://misc/damage_digit.tscn")
 
 func damage(amount: float) -> void:

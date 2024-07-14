@@ -5,9 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://jckjbr5itphj" path="res://misc/magic.tscn" id="2_tcjhh"]
 [ext_resource type="PackedScene" uid="uid://ddh8nxig686bf" path="res://misc/big_death_skull.tscn" id="2_u8k1o"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w773j"]
-radius = 14.0
-height = 28.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g0qwc"]
+radius = 20.0
+height = 58.0
 
 [sub_resource type="Animation" id="Animation_3uevj"]
 length = 0.001
@@ -266,8 +266,15 @@ bg_color = Color(1, 0, 0, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_yj40k")
+speed = 3.5
+sword_damage = null
+spell_damage = null
+spell_interval = null
 spell_scene = ExtResource("2_tcjhh")
+health = null
+max_health = null
 death_prefab = ExtResource("2_u8k1o")
+level = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -30)
@@ -276,8 +283,8 @@ hframes = 6
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
-shape = SubResource("CapsuleShape2D_w773j")
+position = Vector2(0, -29)
+shape = SubResource("CapsuleShape2D_g0qwc")
 debug_color = Color(0, 0.611765, 0.623529, 0.168627)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
