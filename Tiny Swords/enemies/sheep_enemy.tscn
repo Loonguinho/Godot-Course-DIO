@@ -63,6 +63,7 @@ height = 34.0
 [node name="SheepEnemy" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(0.985103, 1.00414)
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_bj72p")
 death_prefab = ExtResource("2_itsbk")
 enemy_damage = 3.0

@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ddh8nxig686bf" path="res://misc/big_death_skull.tscn" id="2_u8k1o"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g0qwc"]
-radius = 20.0
-height = 58.0
+radius = 31.0
+height = 62.0
 
 [sub_resource type="Animation" id="Animation_3uevj"]
 length = 0.001
@@ -252,10 +252,10 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_nkyqq"]
-radius = 114.004
+radius = 138.014
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u3rwm"]
-radius = 21.0
+radius = 34.0
 height = 74.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clvdp"]
@@ -277,6 +277,7 @@ hframes = 6
 vframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -29)
 shape = SubResource("CapsuleShape2D_g0qwc")
 debug_color = Color(0, 0.611765, 0.623529, 0.168627)
@@ -290,7 +291,6 @@ autoplay = "idle"
 [node name="SwordArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SwordArea"]
-visible = false
 position = Vector2(0, -30)
 shape = SubResource("CircleShape2D_nkyqq")
 debug_color = Color(0.847059, 0, 0.909804, 0)

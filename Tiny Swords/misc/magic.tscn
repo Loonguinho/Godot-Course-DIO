@@ -136,7 +136,7 @@ blend_mode = 1
 radius = 284.007
 
 [node name="Magic" type="Node2D"]
-position = Vector2(1, 0)
+position = Vector2(1, -30)
 script = ExtResource("1_ays8l")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -62,6 +62,7 @@ height = 54.0
 [node name="PawnEnemy" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(0.980422, 1.00539)
 motion_mode = 1
+wall_min_slide_angle = 0.0
 script = ExtResource("1_h7voe")
 health = 15.0
 death_prefab = ExtResource("2_atu51")

@@ -30,6 +30,10 @@ func reset():
 	meat_counter = 0
 	time_survived = ""
 	monster_defeated = 0
+	level = 1
+	experience = 0
+	experience_required = 0
+	experience_total = 0
 	
 	for connection in on_game_over.get_connections():
 		on_game_over.disconnect(connection.callable)
@@ -58,6 +62,7 @@ func gain_experience(amount: int) -> void:
 func level_up() -> void:
 	level += 1
 	experience_required = get_required_exp(level + 1)
-	player.sword_damage += 1
+	player.sword_damage +=  player.sword_damage*0.09
 	player.spell_damage += player.spell_damage*0.09
 	player.max_health += player.max_health*0.02
+	player.spell_interval -= 0.01 
