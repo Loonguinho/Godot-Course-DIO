@@ -51,7 +51,7 @@ func _process(delta: float) -> void:
 	update_attack_cooldown(delta)
 	#Attack
 	if Input.is_action_just_pressed("attack"):
-		attack()	
+		attack()
 	#Play idle and run animations
 	play_animation_run_idle()
 	#Flip sprite
@@ -194,7 +194,7 @@ func update_spell(delta: float):
 	#create spell
 	var spell = spell_scene.instantiate()
 	spell.damage_amount = spell_damage
-	add_child(spell)	
+	add_child(spell)
 
 func update_health_bar() -> void:
 	health_bar.max_value = max_health

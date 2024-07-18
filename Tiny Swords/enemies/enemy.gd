@@ -37,7 +37,7 @@ func take_damage(amount: float) -> void:
 	var damage_digit = damage_digit_prefab.instantiate()
 	damage_digit.value = round(amount)
 	if damage_digit_marker:
-		damage_digit.global_position = damage_digit_marker.global_position 
+		damage_digit.global_position = damage_digit_marker.global_position
 	else:
 		damage_digit.global_position = global_position
 	

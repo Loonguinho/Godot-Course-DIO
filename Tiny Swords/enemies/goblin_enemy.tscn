@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://pl8rp3qgmfva"]
+[gd_scene load_steps=16 format=3 uid="uid://pl8rp3qgmfva"]
 
 [ext_resource type="Script" path="res://enemies/enemy.gd" id="1_roqw7"]
 [ext_resource type="PackedScene" uid="uid://djbo3vh7xqorf" path="res://misc/death_skull.tscn" id="2_d0syu"]
@@ -61,6 +61,9 @@ animations = [{
 radius = 8.95608
 height = 54.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_407q6"]
+radius = 78.0707
+
 [node name="GoblinEnemy" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(2.28056, 2.28056)
 motion_mode = 1
@@ -75,10 +78,10 @@ drop_chances = Array[float]([0.6, 0.1])
 exp_amount = 50
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(0, -30)
 sprite_frames = SubResource("SpriteFrames_uj37g")
 autoplay = "default"
-frame_progress = 0.557584
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -9.20826)
@@ -91,3 +94,10 @@ speed = 0.6
 
 [node name="DamageMarker" type="Marker2D" parent="."]
 position = Vector2(0, -60.9499)
+
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(-0.438489, -27.6248)
+shape = SubResource("CircleShape2D_407q6")
+debug_color = Color(0.982306, 0, 0.367552, 0)
