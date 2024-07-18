@@ -25,7 +25,7 @@ func reset():
 	player = null
 	player_position = Vector2.ZERO
 	is_game_over = false
-	var time_elapsed: float = 0.0
+	time_elapsed = 0.0
 	time_elapsed_string = ""
 	meat_counter = 0
 	time_survived = ""
@@ -50,7 +50,7 @@ func _process(delta: float):
 
 
 func get_required_exp(level: int) -> int:
-	return round(pow(level, 1.8) + level * 4 + 8)
+	return round(pow(level, 2) + level * 4 + 8)
 
 func gain_experience(amount: int) -> void:
 	experience_total += amount
@@ -65,4 +65,4 @@ func level_up() -> void:
 	player.sword_damage +=  player.sword_damage*0.09
 	player.spell_damage += player.spell_damage*0.09
 	player.max_health += player.max_health*0.02
-	player.spell_interval -= 0.01 
+	#player.spell_interval -= 0.01 

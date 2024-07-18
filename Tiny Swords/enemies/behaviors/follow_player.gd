@@ -1,8 +1,6 @@
 extends Node
  
-
 @export var speed: float = 1.0
-
 
 var enemy: Enemy
 var sprite: AnimatedSprite2D

@@ -22,12 +22,10 @@ var damage_digit_prefab: PackedScene
 @export var exp_amount = 10
 
 func _ready():
-	#motion_mode = CharacterBody2D.MOTION_MODE_FLOATING
 	damage_digit_prefab = preload("res://misc/damage_digit.tscn")
 
-func damage(amount: float) -> void:
+func take_damage(amount: float) -> void:
 	health -= amount
-	print("Dano:"+str(amount) + "Life:" + str(health))
 	
 	#Hit damage
 	modulate = Color.RED
@@ -37,7 +35,6 @@ func damage(amount: float) -> void:
 	
 	#Create Damage digit
 	var damage_digit = damage_digit_prefab.instantiate()
-
 	damage_digit.value = round(amount)
 	if damage_digit_marker:
 		damage_digit.global_position = damage_digit_marker.global_position 
@@ -94,3 +91,5 @@ func get_random_item() -> PackedScene:
 		needle += drop_chance
 		
 	return drop_items[0]
+
+

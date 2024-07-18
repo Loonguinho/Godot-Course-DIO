@@ -102,14 +102,17 @@ func play_animation_run_idle() -> void:
 				animation_player.play("idle")
 
 func attack() -> void:
-	
 	# Check if it is in cooldown
 	if is_attacking:
 		return
 	
 	# Play attack animation
-	animation_player.play("attack_side_1")
-	
+	var rand: float = randf()
+	if rand > 0.5:
+		animation_player.play("attack_side_1")
+	else:
+		animation_player.play("attack_side_2")
+		
 	# Set cooldown
 	attack_cooldown = 0.6
 
@@ -127,11 +130,9 @@ func update_attack_cooldown(delta: float) -> void:
 
 func deal_damage_to_enemies() -> void:
 	var bodies = sword_area.get_overlapping_bodies()
-	
 	for body in bodies:
 		if body.is_in_group("enemies"):
 			var enemy: Enemy = body
-			
 			var direction_to_enemy = (enemy.position - position).normalized()
 			var attack_direction: Vector2
 			if sprite.flip_h:
@@ -140,8 +141,7 @@ func deal_damage_to_enemies() -> void:
 				attack_direction = Vector2.RIGHT
 			var dot_product = direction_to_enemy.dot(attack_direction)
 			if  dot_product >= 0.6:
-				enemy.damage(sword_damage)
-				
+				enemy.take_damage(sword_damage)
 		pass
 
 func update_damage_detection(delta):
@@ -156,13 +156,12 @@ func update_damage_detection(delta):
 		if body.is_in_group("enemies"):
 			var enemy: Enemy = body
 			var damage_amount: float = enemy.enemy_damage
-			damage(damage_amount)
+			take_damage(damage_amount)
 
-func damage(amount: float) -> void:
+func take_damage(amount: float) -> void:
 	if health <=0: return
 	
 	health -= amount
-	print("Dano:"+str(amount) + "Life:" + str(health))
 	
 	#Hit damage
 	modulate = Color.RED
